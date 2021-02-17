@@ -2,13 +2,7 @@ import java.util.*;
 public class AddressBookLogic implements BookInterface
 {
 	Scanner input = new Scanner(System.in);
-//	ArrayList<AddressBook> AddressBookList = new ArrayList<AddressBook>();
-	
-	//ArrayList<AddressBook> AddressBookList save(String firstName, AddressBook newBook)
-	//{
-	//	AddressBookList.set(String firstName,newBook);
-	//	return AddressBookList;
-	//}
+
 	public AddressBook newBook()
 	{
 		AddressBook newBook = new AddressBook();
@@ -46,6 +40,6 @@ public class AddressBookLogic implements BookInterface
 	      String Email = input.next();
 	      newBook.setEmail(Email);
 	      
-	      return newBook;
+	      return newBook; //return reference
 	}
 }
