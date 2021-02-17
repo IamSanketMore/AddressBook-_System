@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class AddressBookSystem
 {
 	public static void main(String args [])
@@ -8,7 +10,7 @@ public class AddressBookSystem
 		
 		Contact object = new Contact("Sanket","More","Deopur Dhule","Dhule","Maharastra","424005","8180019348","sanketmore.999.m@gmail.com");
 		
-		object.contacts();
+		object.viewData();
 	}
 }
 class Contact
@@ -22,6 +24,8 @@ class Contact
 		String mobileNumber;
 		String email;
 	
+		Scanner sc = new Scanner(System.in);
+		
 		Contact(String firstName, String lastName,String address,String city,String state,String zip,String mobileNumber,String email)
 		{
 			this.firstName = firstName;
@@ -33,8 +37,30 @@ class Contact
 			this.mobileNumber = mobileNumber;
 			this.email  = email;
 		}
-		public void contacts()
+		public String getData()
 		{
+			System.out.println("Enter First Name:-");
+			firstName =  sc.next();
+			System.out.println("Enter Last Name:-");
+			lastName =  sc.next();
+			System.out.println("Enter Address:-");
+			address =  sc.next();
+			System.out.println("Enter City:-");
+			city =  sc.next();
+			System.out.println("Enter State:-");
+			state =  sc.next();
+			System.out.println("Enter Zip Code:-");
+			zip =  sc.next();
+			System.out.println("Enter a Mobile Number:-");
+			mobileNumber =  sc.next();
+			System.out.println("Enter a Email Id:-");
+			email =  sc.next();
+			
+			return firstName;
+		}	
+		public void viewData()
+		{
+			getData();
 			System.out.println("First Name:-"+firstName);
 			System.out.println("Last Name:-"+lastName);
 			System.out.println("Address:-"+address);
