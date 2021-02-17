@@ -86,7 +86,7 @@ public class AddressBook
 			this.email = email;
 		}
 
-		
+		//default constructor
 		public AddressBook(){}
 		public AddressBook(String firstName, String lastName, String address, String city, String state, String zip, String mobileNumber, String email)
 		{
