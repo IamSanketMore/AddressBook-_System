@@ -25,7 +25,8 @@ public class MainClass
 			System.out.println("| 1 -> Add Entry                   |");
 			System.out.println("| 2 -> View data                   |");
 			System.out.println("| 3 -> Edit/Update data            |");
-			System.out.println("| 4 -> Exit                        |");
+			System.out.println("| 4 -> Delete data                 |");
+			System.out.println("| 5 -> Exit                        |");
 			System.out.println("|----------------------------------|");
 			System.out.print("Enter Your Choice:-");
 
@@ -34,10 +35,10 @@ public class MainClass
 			{
 			case 1:
 				System.out.println("------------------- Add Details -------------");
-					Person = BookLogic.newBook();
+				Person = BookLogic.newBook();
 				// --------- Add Data To The ArrayList ------------ //
-					list.add(Person);
-					System.out.println("\n * Person Details Entry Successfully Added *\n");
+				list.add(Person);
+				System.out.println("\n * Person Details Entry Successfully Added *\n");
 
 				break;
 			case 2:
@@ -95,9 +96,28 @@ public class MainClass
 				}
 				System.out.println("\n * Person Details Entry Modified Successfully *\n");
 				break;
-			
-
 			case 4:
+				System.out.println("------------  Delete Details -------------");
+				System.out.println("For Delete Data Type First Name of Person");
+				String name = sc.next(); // Accept given name for delete 
+				// Iterate loop through Arraylist
+				for(AddressBook n : list)
+				{
+					if(n.getFirstName().equalsIgnoreCase(name))
+					{ // Check Name if given name is present in Arraylist
+						list.remove(n);
+						break;
+					}
+					else
+					{
+						System.out.println("!!! Data Not Found !!!\n Check You Enter Data Was Right");
+						System.out.println("----------------------------------------------");
+					}
+				}
+				System.out.println("\n * Person Details Entry Deleted Successfully *\n");
+				break;
+
+			case 5:
 				done = true;
 				System.out.println("********* Exit ********* \nfrom Address book System");
 				break;
