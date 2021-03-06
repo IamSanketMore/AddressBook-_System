@@ -169,6 +169,35 @@ public class BookLogic implements BookInterface
 
 								//	data.add();
 								Contact inputData=new Contact(data.get(0),data.get(1),data.get(2),data.get(3),data.get(4),data.get(5),data.get(6),data.get(7));
+								//--------------- For avoid Duplicate Data ---------
+								boolean isMatch=false;
+								for(Map.Entry<String,ArrayList<Contact>> eachAddressBook:AddressBookMap.entrySet()) 
+								{
+									for(int index=0;index<eachAddressBook.getValue().size();index++) 
+									{
+										if(eachAddressBook.getValue().get(index).getFirstName().equals(inputData.getFirstName())) 
+										{
+											isMatch=true;
+											break;
+										}
+
+									}
+									if(isMatch) 
+									{
+										break;
+									}									
+								}
+								if(!isMatch) 
+								{
+									AddressBookMap.get(givenAddressbook.getKey()).add(inputData);
+									System.out.println("You have successfully added new contact.");
+									System.out.println("------------------------------------------------------------------------------------------------------------------------------------------------------------");					
+								}
+								else 
+								{
+									System.out.println("This person is already exist.Please enter contact of new person");
+								}
+								
 								break;
 							}
 							case 2:
