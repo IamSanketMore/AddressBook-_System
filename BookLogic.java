@@ -29,7 +29,8 @@ public class BookLogic implements BookInterface
 			System.out.println("| 4 -> Search Person By City           |");
 			System.out.println("| 5 -> Search Person By State          |");
 			System.out.println("| 6 -> View Persons By City            |");
-			System.out.println("| 7 -> Exit                            |");
+			System.out.println("| 7 -> View Persons By State           |");
+			System.out.println("| 8 -> Exit                            |");
 			System.out.println("|--------------------------------------|");
 
 			System.out.print("\n ***Enter Your Choice\t:-");
@@ -323,16 +324,41 @@ public class BookLogic implements BookInterface
 				}
 				case 6:
 				{
+					System.out.println("   ***     All Data View By City Name And Persons Name ***    \n");
+					System.out.println("------------------------------------------------------------------------------");
+					System.out.println("| AddressBook Names |  Person Name   |  City Name   |");
+					System.out.println("------------------------------------------------------------------------------");
 					for(Map.Entry<String,ArrayList<Contact>> eachAddressBook:AddressBookMap.entrySet()) 
             		{
             			for(int index=0;index<eachAddressBook.getValue().size();index++) 
             			{
-            				System.out.println(eachAddressBook.getKey()+" : " +eachAddressBook.getValue().get(index).getCity() +" : "+eachAddressBook.getValue().get(index).getFirstName());
-     				            				
-            			}				
+            				String bookName = eachAddressBook.getKey();
+            				String cityName = eachAddressBook.getValue().get(index).getCity();
+            				String PersonName = eachAddressBook.getValue().get(index).getFirstName();
+            				System.out.println("|   "+bookName+"          |     "+PersonName+"    |        "+cityName+"      |");
+     				    }				
             		}
+					break;
 				}
 				case 7:
+				{
+					System.out.println("   ***     All Data View By City Name And Persons Name ***    \n");
+					System.out.println("------------------------------------------------------------------------------");
+					System.out.println("| AddressBook Names |  Person Name   |  State Name   |");
+					System.out.println("------------------------------------------------------------------------------");
+					for(Map.Entry<String,ArrayList<Contact>> eachAddressBook:AddressBookMap.entrySet()) 
+            		{
+            			for(int index=0;index<eachAddressBook.getValue().size();index++) 
+            			{
+            				String bookName = eachAddressBook.getKey();
+            				String stateName = eachAddressBook.getValue().get(index).getCity();
+            				String PersonName = eachAddressBook.getValue().get(index).getFirstName();
+            				System.out.println("|   "+bookName+"          |     "+PersonName+"    |        "+stateName+"      |");
+     				    }				
+            		}
+					break;
+				}
+				case 8:
 				{
 					addressBookWhileLoop = false;
 				}// Case 5 End
