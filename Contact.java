@@ -1,9 +1,7 @@
 //----------------------------- Interface ---------------------------
 interface BookInterface
 {
-	
-	public void viewData();
-	public void updateData();
+
 }
 //----------------------- Class AddressBook -------------------------------------
 public class Contact
