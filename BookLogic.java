@@ -93,7 +93,7 @@ public class BookLogic implements BookInterface
                 {
                     for(Map.Entry<String,ArrayList<Contact>> givenAddressbook:AddressBookMap.entrySet())
                     {
-                        System.out.println(" You are in [ " + givenAddressbook.getKey() +" ] Address Book \n");
+                        System.out.println("\n You are in [ " + givenAddressbook.getKey() +" ] Address Book \n");
 
                         boolean temp = true;
                         while(temp)
@@ -418,12 +418,24 @@ public class BookLogic implements BookInterface
                         {
                             case 1:
                                 List<Contact> sortedListForName =data.stream().sorted((n1,n2) -> n1.getFirstName().compareTo(n2.getFirstName())).collect(Collectors.toList());
-                                System.out.println(" *********************** Sorted Alphabetically in Ascending order By A Person Name *******************************  \n");
+                                System.out.println(" *********************************** Sorted Alphabetically in Ascending order By A Person First Name ***************************************\n");
                                 System.out.println(sortedListForName);
+                                System.out.println("********************************************************************************************************************************************");
                                 break;
-                            case 4:
+
+                            case 2:
+                                List<Contact> sortedListForCity =data.stream().sorted((n1,n2) -> n1.getCity().compareTo(n2.getCity())).collect(Collectors.toList());
+                                System.out.println(" *********************************** Sorted Alphabetically in Ascending order By  City Name ************************************************\n");
+                                System.out.println(sortedListForCity);
+                                System.out.println("********************************************************************************************************************************************");
                                 break;
-                        }
+                            case 3:
+                                List<Contact> sortedListForState =data.stream().sorted((n1,n2) -> n1.getState().compareTo(n2.getState())).collect(Collectors.toList());
+                                System.out.println(" *********************************** Sorted Alphabetically in Ascending order By  State Name ***********************************************\n");
+                                System.out.println(sortedListForState);
+                                System.out.println("********************************************************************************************************************************************");
+                                break;
+                            }
 
                     break;
                 }// Case 10 End
