@@ -1,3 +1,6 @@
+import java.util.Comparator;
+import java.util.Locale;
+
 //----------------------------- Interface ---------------------------
 interface BookInterface
 {
@@ -92,7 +95,7 @@ public class Contact
     }
 
 
-   // public AddressBook(){}
+    // public AddressBook(){}
     public Contact(String firstName, String lastName, String address, String city, String state, String zip, String mobileNumber, String email)
     {
         this.firstName = firstName;
@@ -104,21 +107,43 @@ public class Contact
         this.mobileNumber = mobileNumber;
         this.email = email;
     }
+    public static Comparator<Contact> SortName = new Comparator<Contact>() {
+        @Override
+        public int compare(Contact s1, Contact s2)
+        {
+            String emp1 = s1.getFirstName();
+            String emp2 = s2.getFirstName();
 
-	public String toString()
-    {
-        return "\nAddressBookContact{full Name = "+firstName+" "+lastName+"}\n";
+            return  emp1.compareToIgnoreCase(emp2);
+
+    }};
+
+    @Override
+    public String toString() {
+        return "\nAddressBookContact { " +
+                " firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", address='" + address + '\'' +
+                ", city='" + city + '\'' +
+                ", state='" + state + '\'' +
+                ", zip='" + zip + '\'' +
+                ", mobileNumber='" + mobileNumber + '\'' +
+                ", email='" + email + '\'' +
+                '}'+ System.getProperty("line.separator");
     }
-	public void showData()
-	{
-		System.out.println("**********************************************************************************************************");	
-		System.out.println("full Name -> " +firstName+ " " +lastName); 
-		System.out.println("Address -> "+address);
-		System.out.println("City -> " +city);
-		System.out.println("State -> "+state);     
-		System.out.println("Zip -> "+ zip );
-		System.out.println("MobileNumber -> "+mobileNumber);
-		System.out.println("E-mail -> " +email);
-		System.out.println("**********************************************************************************************************");
-	}
+
+    public void showData()
+    {
+        System.out.println("**********************************************************************************************************");
+        System.out.println(" full Name    -> " +firstName+ "  " +lastName);
+        System.out.println(" Address      -> " +address);
+        System.out.println(" City         -> " +city);
+        System.out.println(" State        -> " +state);
+        System.out.println(" Zip          -> " + zip );
+        System.out.println(" MobileNumber -> " +mobileNumber);
+        System.out.println(" E-mail       -> " +email);
+        System.out.println("**********************************************************************************************************");
+    }
+
+
 }
